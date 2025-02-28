@@ -3,7 +3,7 @@ import DashboardLayout from "../../src/components/layout/DashboardLayout";
 import useUserAuth from "../../src/hooks/useUserAuth";
 import { UserContext } from "../../src/context/UserContext";
 import { POLL_TYPE } from "../../src/utils/data";
-import OptionInput from "../../src/components/options/poolinput";
+import OptionInput from "../../src/components/options/pollInput";
 import OptionImageSelector from "../../src/components/options/Imageselector";
 import axiosInstance from "../../src/utils/axiosInstance";
 import { API_PATHS } from "../../src/utils/apiPaths";
