@@ -4,7 +4,7 @@ import useUserAuth from "../../src/hooks/useUserAuth";
 import { UserContext } from "../../src/context/UserContext";
 import { POLL_TYPE } from "../../src/utils/data";
 import OptionInput from "../../src/components/Input/Optioninput";
-import OptionImageSelector from "../../src/components/Input/OptionImageSelector";
+import OptionImageSelector from "../../src/components/Input/OptionImageselector";
 import axiosInstance from "../../src/utils/axiosInstance";
 import { API_PATHS } from "../../src/utils/apiPaths";
 import toast from "react-hot-toast";
