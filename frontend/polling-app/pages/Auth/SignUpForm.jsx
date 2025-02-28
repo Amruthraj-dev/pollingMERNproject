@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import AuthLayout from "../../src/components/layout/AuthLayout";
 import { useNavigate, Link } from "react-router-dom";
-import ProfilePicSelector from "../../src/components/input/ProfilePicSelector";
-import AuthInput from "../../src/components/input/AuthInput";
+import ProfilePicSelector from "../../src/components/options/ProfilePicSelector";
+import AuthInput from "../../src/components/options/AuthInput";
 import { validateEmail } from "../../src/utils/helper";
 import axiosInstance from "../../src/utils/axiosInstance";
 import { API_PATHS } from "../../src/utils/apiPaths";
@@ -25,7 +25,7 @@ const SignUpForm = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     let profileImageUrl = "";
-  
+
     // Validate inputs
     if (!fullName) {
       setError("Please enter the full name");
@@ -44,14 +44,14 @@ const SignUpForm = () => {
       return;
     }
     setError("");
-  
+
     try {
       // Upload profile picture if provided
       if (profilePic) {
         const imgUploadRes = await uploadImage(profilePic);
         profileImageUrl = imgUploadRes.imageUrl || "";
       }
-  
+
       // Call the register API
       const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
         fullName,
@@ -60,14 +60,14 @@ const SignUpForm = () => {
         password,
         profileImageUrl,
       });
-  
+
       const { token, user } = response.data;
-  
+
       // If token is missing, throw an error to catch block
       if (!token) {
         throw new Error("Registration failed: No token received.");
       }
-  
+
       // Save token and update user context, then navigate to dashboard
       localStorage.setItem("token", token);
       updateUser(user);
@@ -81,7 +81,6 @@ const SignUpForm = () => {
       }
     }
   };
-  
 
   return (
     <AuthLayout>
