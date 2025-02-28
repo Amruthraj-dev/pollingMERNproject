@@ -47,7 +47,6 @@ const OptionImageSelector = ({ imageList, setImageList }) => {
         </div>
       )}
 
-      
       {imageList.length < 4 && (
         <div className="flex items-center gap-5">
           <input

@@ -6,21 +6,24 @@ const OptionInput = ({ optionList, setOptionList }) => {
 
   //Function to handle adding an option
   const handleAddOption = () => {
-    if(option.trim() && optionList.length<4 ){
-        setOptionList([...optionList, option.trim()])
-        setOption("")
+    if (option.trim() && optionList.length < 4) {
+      setOptionList([...optionList, option.trim()]);
+      setOption("");
     }
   };
 
   //Function for deleting an option
   const handleDeleteOption = (index) => {
-    const updatedArr=optionList.filter((_,idx)=>idx!==index)
-    setOptionList(updatedArr)
+    const updatedArr = optionList.filter((_, idx) => idx !== index);
+    setOptionList(updatedArr);
   };
   return (
     <div>
-      {optionList.map((item,index) => (
-        <div key={item} className="flex justify-between bg-gray-200/80 px-4 py-2 rounded-md mb-3">
+      {optionList.map((item, index) => (
+        <div
+          key={item}
+          className="flex justify-between bg-gray-200/80 px-4 py-2 rounded-md mb-3"
+        >
           <p className="text-xs font-medium text-black">{item}</p>
 
           <button
