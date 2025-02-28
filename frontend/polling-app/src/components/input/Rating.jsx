@@ -23,7 +23,9 @@ const Rating = ({ maxStars = 5, value = 0, onChange, readOnly = false }) => {
   };
 
   return (
-    <div className={`flex gap-2 ${readOnly ? "cursor-default":"cursor-pointer"}`}>
+    <div
+      className={`flex gap-2 ${readOnly ? "cursor-default" : "cursor-pointer"}`}
+    >
       {[...Array(maxStars)].map((_, index) => {
         const starValue = index + 1;
         return (
@@ -34,15 +36,14 @@ const Rating = ({ maxStars = 5, value = 0, onChange, readOnly = false }) => {
                 ? "text-yellow-400"
                 : "text-gray-300"
             }`}
-            onClick={()=>handleClick(starValue)}
-            onMouseEnter={()=>handleMouseEnter(starValue)}
+            onClick={() => handleClick(starValue)}
+            onMouseEnter={() => handleMouseEnter(starValue)}
             onMouseLeave={handleMouseLeave}
           >
             <HiMiniStar />
           </span>
         );
       })}
-
     </div>
   );
 };

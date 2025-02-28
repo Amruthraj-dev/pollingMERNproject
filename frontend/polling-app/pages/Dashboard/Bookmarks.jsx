@@ -8,19 +8,16 @@ import PollCard from "../../src/components/PollCards/PollCard";
 
 import EmptyCard from "../../src/components/cards/EmptyCard";
 import { UserContext } from "../../src/context/UserContext";
-import BOOKMARK_ICON from "../../src/assets/images/bookmark-icon.png"
+import BOOKMARK_ICON from "../../src/assets/images/bookmark-icon.png";
 
 const Bookmarks = () => {
   useUserAuth();
 
-const {user} =useContext(UserContext)
+  const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
-;
-  const [bookmarkedPolls,setBookmarkedPolls]=useState([])
+  const [bookmarkedPolls, setBookmarkedPolls] = useState([]);
   const [loading, setLoading] = useState(false);
-
-
 
   const fetchAllPolls = async () => {
     if (loading) return;
@@ -42,10 +39,8 @@ const {user} =useContext(UserContext)
     }
   };
 
-
   useEffect(() => {
-
-      fetchAllPolls();
+    fetchAllPolls();
 
     return () => {};
   }, []);
@@ -64,10 +59,10 @@ const {user} =useContext(UserContext)
           />
         )}
 
-          {bookmarkedPolls.map((poll) => {
-            if(!user?.bookmarkedPolls?.includes(poll._id)) return null
+        {bookmarkedPolls.map((poll) => {
+          if (!user?.bookmarkedPolls?.includes(poll._id)) return null;
 
-            return (
+          return (
             <PollCard
               key={`dashboard_${poll._id}`}
               pollId={poll._id}
@@ -82,12 +77,12 @@ const {user} =useContext(UserContext)
               userHasVoted={poll.userHasVoted || false}
               isPollClosed={poll.closed || false}
               createdAt={poll.createdAt || false}
-            />)
-})}
+            />
+          );
+        })}
       </div>
     </DashboardLayout>
   );
 };
 
 export default Bookmarks;
-
