@@ -3,8 +3,8 @@ import DashboardLayout from "../../src/components/layout/DashboardLayout";
 import useUserAuth from "../../src/hooks/useUserAuth";
 import { UserContext } from "../../src/context/UserContext";
 import { POLL_TYPE } from "../../src/utils/data";
-import OptionInput from "../../src/components/input/Optioninput";
-import OptionImageSelector from "../../src/components/input/OptionImageSelector";
+import OptionInput from "../../src/components/Input/Optioninput";
+import OptionImageSelector from "../../src/components/Input/OptionImageSelector";
 import axiosInstance from "../../src/utils/axiosInstance";
 import { API_PATHS } from "../../src/utils/apiPaths";
 import toast from "react-hot-toast";
@@ -13,7 +13,7 @@ import uploadImage from "../../src/utils/uploadImage";
 const CreatePoll = () => {
   useUserAuth();
 
-  const { user,onPollCreateOrDelete } = useContext(UserContext);
+  const { user, onPollCreateOrDelete } = useContext(UserContext);
 
   const [pollData, setPollData] = useState({
     question: "",
@@ -49,7 +49,9 @@ const CreatePoll = () => {
         const imgUploadsRes = await uploadImage(imageOption.file);
         return imgUploadsRes.imageUrl || "";
       } catch (err) {
-        toast.error(`Error uploading image: ${imageOption.file.name} ${err.message}` );
+        toast.error(
+          `Error uploading image: ${imageOption.file.name} ${err.message}`
+        );
         return "";
       }
     });
@@ -106,7 +108,7 @@ const CreatePoll = () => {
 
       if (response) {
         toast.success("Poll Created Successfully!");
-        onPollCreateOrDelete()
+        onPollCreateOrDelete();
         clearData();
       }
     } catch (e) {
@@ -115,7 +117,6 @@ const CreatePoll = () => {
         handleValueChange("error", e.response.data.message);
       } else {
         handleValueChange("error", "Something went wrong. Please try again.");
-
       }
     }
   };
