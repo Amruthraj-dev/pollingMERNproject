@@ -27,12 +27,7 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/poll", pollRoutes);
 
 //Server uploads folder
-app.use(
-  "/uploads",
-  express.static(
-    path.join("https://polling-mern-backend.vercel.app/", "uploads")
-  )
-);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
