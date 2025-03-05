@@ -28,6 +28,7 @@ app.use("/api/v1/poll", pollRoutes);
 
 //Server uploads folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// console.log(imageUrl)
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
