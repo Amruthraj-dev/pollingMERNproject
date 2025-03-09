@@ -1,26 +1,31 @@
 const multer = require("multer");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const cloudinary = require("../config/cloudinary");
 const path = require("path");
+const fs=require("fs");
 
-//Configure storage
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
-  },
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
-  },
-});
+function uploadMiddleware(folderName) {
+  const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: (req, file) => {
+      const folderPath = `${folderName.trim()}`; // Update the folder path here
+      const fileExtension = path.extname(file.originalname).substring(1);
+      const publicId = `${file.fieldname}-${Date.now()}`;
 
-//File filter
-const fileFilter = (req, file, cb) => {
-  const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-  if (allowedTypes.includes(file.mimetype)) {
-    cb(null, true);
-  } else {
-    cb(new Error("Only .jpeg, .jpg, and .png formats are allowed"), false);
-  }
-};
+      return {
+        folder: folderPath,
+        public_id: publicId,
+        format: fileExtension,
+      };
+    },
+  });
 
-const upload = multer({ storage, fileFilter });
+  return multer({
+    storage: storage,
+    limits: {
+      fileSize: 5 * 1024 * 1024, // 5MB limit
+    },
+  });
+}
 
-module.exports = upload;
+module.exports = {uploadMiddleware};

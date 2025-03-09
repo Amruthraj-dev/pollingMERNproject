@@ -5,12 +5,14 @@ const path = require("path");
 
 const authRoutes = require("./routes/authRoutes");
 const pollRoutes = require("./routes/pollRoutes");
+const uploadRoutes = require("./routes/uploadRoutes");
 
 const connectDB = require("./config/db");
 
 const app = express();
 
-//Middleware to handle CORS
+connectDB();
+
 app.use(
   cors({
     origin: process.env.CLIENT_URL || "*",
@@ -21,14 +23,18 @@ app.use(
 
 app.use(express.json());
 
-connectDB();
-
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/poll", pollRoutes);
+app.use("/api/v1/", uploadRoutes);
 
-//Server uploads folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-// console.log(imageUrl)
 
-const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.use((err, req, res, next) => {
+  console.error("Global Error:", err);
+  res
+    .status(500)
+    .json({ message: "Internal Server Error", error: err.message });
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
