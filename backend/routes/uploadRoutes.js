@@ -14,7 +14,7 @@ router.post("/upload-image", upload.single("image"), async (req, res) => {
 
     res.status(200).json({
       message: "Upload successful",
-      url: req.file.path || req.file.secure_url,
+      imageUrl: req.file.path || req.file.secure_url,
     });
   } catch (err) {
     return res.status(500).json({ message: `Something went wrong ${err}` });

@@ -47,7 +47,7 @@ const CreatePoll = () => {
     const optionPromises = imageOptions.map(async (imageOption) => {
       try {
         const imgUploadsRes = await uploadImage(imageOption.file);
-        return imgUploadsRes.url || "";
+        return imgUploadsRes.imageUrl || "";
       } catch (err) {
         toast.error(
           `Error uploading image: ${imageOption.file.name} ${err.message}`
