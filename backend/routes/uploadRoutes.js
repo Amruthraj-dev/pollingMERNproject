@@ -5,10 +5,20 @@ const router = express.Router();
 const { uploadMiddleware } = require("../middleware/uploadMiddleware");
 
 const upload = uploadMiddleware("ImageAsserts");
-router.post("/upload-image", upload.single("image"), async (req, res) => {
-  if (!req.file) return res.status(400).json({ message: "No file uploaded" });
 
-  res.json({ message: "Upload successful", url: req.file.path });
+router.post("/upload-image", upload.single("image"), async (req, res) => {
+  try {
+    if (!req.file) return res.status(400).json({ message: "No file uploaded" });
+
+    console.log(req.file);
+
+    res.status(200).json({
+      message: "Upload successful",
+      url: req.file.path || req.file.secure_url,
+    });
+  } catch (err) {
+    return res.status(500).json({ message: `Something went wrong ${err}` });
+  }
 });
 
 module.exports = router;
