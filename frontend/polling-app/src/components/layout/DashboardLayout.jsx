@@ -9,16 +9,16 @@ const DashboardLayout = ({ children, activeMenu, showStats, stats }) => {
   const { user } = useContext(UserContext);
 
   return (
-    <div>
+    <div className="h-screen flex flex-col">
       <Navbar activeMenu={activeMenu} />
 
       {user && (
-        <div className="flex">
+        <div className="flex flex-1 overflow-hidden">
           <div className="max-[1080px]:hidden">
             <SideMenu activeMenu={activeMenu} />
           </div>
 
-          <div className="grow mx-5">{children}</div>
+          <div className="grow mx-5 overflow-y-auto">{children}</div>
           <div className="hidden md:block mr-5">
             <UserDetailsCard
               profileImageUrl={user && user.profileImageUrl}
@@ -29,7 +29,7 @@ const DashboardLayout = ({ children, activeMenu, showStats, stats }) => {
               totalPollsBookmarked={user && user.totalPollsBookmarked}
             />
 
-            {showStats && stats?.length>0 && <TrendingPolls stats={stats}/>}
+            {showStats && stats?.length > 0 && <TrendingPolls stats={stats} />}
           </div>
         </div>
       )}
