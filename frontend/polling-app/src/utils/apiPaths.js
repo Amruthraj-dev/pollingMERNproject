@@ -1,4 +1,4 @@
-export const BASE_URL = "https://polling-mern-backend.vercel.app/";
+export const BASE_URL = "https://polling-mern-backend.vercel.app";
 
 export const API_PATHS = {
   AUTH: {
