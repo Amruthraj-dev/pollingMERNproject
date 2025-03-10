@@ -19,6 +19,6 @@ export const API_PATHS = {
     DELETE: (pollId) => `/api/v1/poll/${pollId}/delete`,
   },
   IMAGE: {
-    UPLOAD_IMAGE: "/api/v1/auth/upload-image",
+    UPLOAD_IMAGE: "/api/v1/upload-image",
   },
 };
