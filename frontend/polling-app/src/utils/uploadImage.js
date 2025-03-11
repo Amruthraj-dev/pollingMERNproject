@@ -19,7 +19,7 @@ const uploadImage = async (imageFile) => {
     return response.data;
   } catch (err) {
     console.error("Error uploading the image:", err);
-    throw err; //Rethrow error for handling
+    throw err; //Rethrow error for handling   Rethrowing the error ensures proper error handling by the function caller.
   }
 };
 export default uploadImage;

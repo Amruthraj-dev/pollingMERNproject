@@ -37,7 +37,7 @@ const HeaderwithFilter = ({ title, filterType, setFilterType }) => {
             <button
               key={type.value}
               className={`text-[12px] px-4 py-1 rounded-lg text-nowrap ${
-                filterType == type.value
+                filterType === type.value
                   ? "text-white bg-sky-900"
                   : "text-[13px] bg-sky-100"
               }`}

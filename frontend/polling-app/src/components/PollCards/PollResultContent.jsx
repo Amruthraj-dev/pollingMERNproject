@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import CharAvatar from "../cards/CharAvator";
+// import OptionInputTile from "../options/OptionInputTile";
 
 const PollOptionVoteResult = ({ label, optionVotes, totalVotes }) => {
   //Calculate progress directly
@@ -36,6 +37,7 @@ const OpenEndedPollResponse = ({
   key,
   profileImgUrl,
   userFullName,
+  selectedOptionIndex,
   response,
   createdAt,
 }) => {
@@ -58,7 +60,7 @@ const OpenEndedPollResponse = ({
         </p>
       </div>
 
-      <p className="text-xs text-slate-700 -mt-2 ml-[44px]">{response}</p>
+      <p className="text-xs text-slate-700 -mt-2 ml-15">{response}</p>
     </div>
   );
 };
@@ -84,14 +86,14 @@ const PollResultContent = ({ type, options, voters, responses }) => {
     case "image-based":
       return (
         <div className="grid grid-cols-2 gap-4">
-          {options.map((option, index) => {
+          {options.map((option, index) => 
             <ImagePollResult
               key={option.id}
               imgUrl={option.optionText || ""}
               optionVotes={option.votes}
               totalVotes={voters || 0}
-            />;
-          })}
+            />
+          )}
         </div>
       );
 
@@ -113,7 +115,7 @@ const PollResultContent = ({ type, options, voters, responses }) => {
     default:
       return null;
   }
-  //   return <div></div>;
+
 };
 
 export default PollResultContent;

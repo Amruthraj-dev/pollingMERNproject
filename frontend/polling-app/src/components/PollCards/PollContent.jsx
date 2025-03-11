@@ -18,14 +18,14 @@ const PollContent = ({
     case "yes/no":
       return (
         <>
-          {options.map((option, index) => {
+          {options.map((option, index) => 
             <OptionInputTile
               key={option._id}
-              isSelected={selectedOptionIndex == index}
+              isSelected={selectedOptionIndex === index}
               label={option.optionText || ""}
               onSelect={() => onOptionSelect(index)}
-            />;
-          })}
+            />
+          )}
         </>
       );
     case "rating":
@@ -50,7 +50,7 @@ const PollContent = ({
         <div className="-mt-3">
           <textarea
             placeholder="Your Response"
-            className="w-full text-[13px] text-black outline-none bg-slate-200/80 rounded-md mt-2"
+            className="w-full text-[13px] text-black outline-none bg-slate-200/80 rounded-md mt-2 p-2"
             rows={4}
             value={userResponse}
             onChange={({ target }) => onResponseChange(target.value)}
