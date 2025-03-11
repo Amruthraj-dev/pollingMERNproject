@@ -148,8 +148,6 @@ const PollCard = ({
   }
 
 
-
-
   return (
     !pollDeleted && (
       <div className="bg-slate-100/50 my-5 p-5 rounded-lg border border-slate-100 mx-auto">
