@@ -62,14 +62,14 @@ const LoginForm = () => {
             value={email}
             onChange={({ target }) => setEmail(target.value)}
             label="Email Address"
-            placeholder="john@example.com"
+            placeholder="please use john@gmail.com for login"
             type="text"
           />
           <AuthInput
             value={password}
             onChange={({ target }) => setPassword(target.value)}
             label="Password"
-            placeholder="Min 8 Characters"
+            placeholder="password- 12345"
             type="password"
           />
 
