@@ -11,6 +11,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [showguestCreds,setShowguestCreds]=useState(true)
 
   const { updateUser } = useContext(UserContext);
   const navigate = useNavigate();
@@ -62,16 +63,23 @@ const LoginForm = () => {
             value={email}
             onChange={({ target }) => setEmail(target.value)}
             label="Email Address"
-            placeholder="please use john@gmail.com for login"
+            placeholder="john@gmail.com"
             type="text"
           />
           <AuthInput
             value={password}
             onChange={({ target }) => setPassword(target.value)}
             label="Password"
-            placeholder="password- 12345"
+            placeholder="password"
             type="password"
           />
+
+         {showguestCreds && (
+          <>
+           <p>Use &quot;john@gmail.com&quot;</p>
+          <p>and password &quot;john&quot;</p>
+          </>
+        )}
 
           {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
 
