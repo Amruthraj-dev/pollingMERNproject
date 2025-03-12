@@ -103,7 +103,7 @@ const LoginForm = () => {
             LOGIN
           </button>
 
-          <button onClick={handleGuestLogin} className="btn-primary bg-white text-cyan-500 border mt-3">Continue as Guest</button>
+          <button onClick={handleGuestLogin} className="btn-rev">Continue as Guest</button>
 
           <p className="text-5 text-slate-800 mt-3">
             Don't have an account?

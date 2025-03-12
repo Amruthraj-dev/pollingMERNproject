@@ -18,7 +18,11 @@
     }
 
     .btn-primary {
-        @apply w-full text-base font-medium text-white bg-sky-500 shadow-lg shadow-sky-500/5 p-[10px] rounded-md my-1 hover:bg-sky-500/15 hover:text-sky-500;
+        @apply w-full text-base font-medium text-white bg-sky-500 shadow-lg shadow-sky-500/5 p-[10px] rounded-md my-6 hover:bg-sky-500/15 hover:text-sky-500;
+    }
+    
+    .btn-rev{
+        @apply w-full text-base font-medium text-sky-500 bg-sky-50 border shadow-lg shadow-sky-500/5 p-[10px] rounded-md my-1 hover:bg-sky-500/15 hover:text-sky-500 hover:border-sky-500/10;
     }
 
     .option-chip {
