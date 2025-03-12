@@ -17,7 +17,7 @@ const OptionInputTile = ({ isSelected, label, onSelect }) => {
         <MdRadioButtonUnchecked className="text-lg text-slate-400" />
       )}
 
-      <span className="text-[13px]">{label}</span>
+      <span className="text-sm">{label}</span>
     </button>
   );
 };

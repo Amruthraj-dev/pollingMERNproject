@@ -136,7 +136,7 @@ const CreatePoll = () => {
             onChange={({ target }) =>
               handleValueChange("question", target.value)
             }
-            className="w-full text-[13px] text-black outline-none bg-slate-200/80 p-2 rounded-md mt-2"
+            className="w-full text-sm text-black outline-none bg-slate-200/80 p-2 rounded-md mt-2"
           />
         </div>
         <div className="mt-3">

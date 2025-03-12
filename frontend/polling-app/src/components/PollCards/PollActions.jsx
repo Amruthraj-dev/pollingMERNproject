@@ -34,7 +34,7 @@ const PollActions = ({
       {/* closing poll */}
       {isMyPoll && !pollClosed && (
         <button
-          className="btn-small text-cyan-600 bg-cyan-500/20 hover:bg-cyan-500 hover:text-white hover:border-orange-100 "
+          className="btn-small text-cyan-600 bg-cyan-500/20 hover:bg-cyan-500 hover:text-white hover:border-orange-100"
           onClick={onClosePoll}
           disabled={loading}
         >

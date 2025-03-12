@@ -36,7 +36,7 @@ const LoginForm = () => {
         setError("Something went wrong. Please try again");
       }
     }
-    
+
   }
 
   const handleLogin = async (e) => {
