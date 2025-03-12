@@ -18,11 +18,11 @@
     }
 
     .btn-primary {
-        @apply w-full text-sm font-medium text-white bg-sky-500 shadow-lg shadow-sky-500/5 p-[10px] rounded-md my-1 hover:bg-sky-500/15 hover:text-sky-500;
+        @apply w-full text-base font-medium text-white bg-sky-500 shadow-lg shadow-sky-500/5 p-[10px] rounded-md my-1 hover:bg-sky-500/15 hover:text-sky-500;
     }
 
     .option-chip {
-        @apply text-xs font-medium text-sky-700 bg-sky-100 px-4 py-1 rounded-lg border border-sky-50 cursor-pointer hover:border-cyan-500
+        @apply text-sm font-medium text-sky-700 bg-sky-100 px-4 py-1 rounded-lg border border-sky-50 cursor-pointer hover:border-cyan-500
     }
 
     .btn-small {
